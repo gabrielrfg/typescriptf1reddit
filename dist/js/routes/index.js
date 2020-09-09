@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const leagueController_1 = require("../controllers/leagueController");
+const divisionController_1 = require("../controllers/divisionController");
+const router = express_1.Router();
+router.get("/leagues", leagueController_1.getLeagues);
+router.post("/add-league", leagueController_1.addLeague);
+router.put("/edit-league/:id", leagueController_1.updateLeague);
+router.delete("/delete-league/:id", leagueController_1.deleteLeague);
+router.get("/divisions", divisionController_1.getDivisions);
+router.post("/add-divisions", divisionController_1.addDivision);
+exports.default = router;
