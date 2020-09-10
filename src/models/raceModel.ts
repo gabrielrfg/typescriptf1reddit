@@ -5,8 +5,7 @@ const raceSchema: Schema = new Schema(
     {
         season: {type: Schema.Types.ObjectId, ref:'Season'},
         date: Schema.Types.Date,
-        results:[{types: Schema.Types.ObjectId, ref:'Result'}]
+        results:[{type: Schema.Types.ObjectId, ref:'Result'}]
     }
 );
-
 export default model<IRace>("Race", raceSchema);
