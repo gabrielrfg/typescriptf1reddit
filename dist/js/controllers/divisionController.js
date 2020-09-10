@@ -14,13 +14,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.addDivision = exports.getDivisions = void 0;
 const divisionModel_1 = __importDefault(require("../models/divisionModel"));
+const leagueModel_1 = __importDefault(require("../models/leagueModel"));
 const getDivisions = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const divisions = yield divisionModel_1.default.find();
         res.status(200).json({ divisions });
     }
     catch (error) {
-        throw error;
+        res.status(500).json({ message: "Error getting divisions" });
     }
 });
 exports.getDivisions = getDivisions;
@@ -32,13 +33,19 @@ const addDivision = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
             platform: body.platform,
             number: body.number
         });
-        const newDivision = yield division.save();
+        const league = yield leagueModel_1.default.findById(division.league); //get the division's league
+        if (!league) {
+            throw 'League not found';
+        }
+        const newDivision = yield division.save(); //save new division
+        league.divisions.push(newDivision.id);
+        const updatedLeague = yield league.save();
         const allDivisions = yield divisionModel_1.default.find();
         res.status(201)
-            .json({ message: "Division added", division: newDivision, allDivisions: allDivisions });
+            .json({ message: "Division added", division: newDivision, allDivisions: allDivisions, league: updatedLeague });
     }
     catch (error) {
-        throw error;
+        res.status(500).json({ message: 'Error adding division' });
     }
 });
 exports.addDivision = addDivision;

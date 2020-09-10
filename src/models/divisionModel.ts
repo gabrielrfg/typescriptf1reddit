@@ -5,7 +5,8 @@ const divisionSchema: Schema = new Schema(
     {
         league: {type:Schema.Types.ObjectId, ref: 'League'},
         platform: String,
-        number: Number
+        number: Number,
+        seasons: [{type:Schema.Types.ObjectId, ref: 'Season'}]
     }
 );
 

@@ -2,12 +2,13 @@ import { Response, Request } from "express";
 import { ILeague } from "../types/leagueType";
 import League from "../models/leagueModel";
 
+
 const getLeagues = async (req: Request, res: Response): Promise<void> => {
   try {
     const leagues: ILeague[] = await League.find()
     res.status(200).json({ leagues })
   } catch (error) {
-    console.log(error)
+    res.status(500).json({message: "Error getting leagues"})
   }
 }
 
@@ -26,7 +27,7 @@ const addLeague = async (req: Request, res: Response): Promise<void> => {
         .status(201)
         .json({ message: "League added", league: newLeague, leagues: allLeagues })
     } catch (error) {
-      throw error
+      res.status(500).json({message: "Error adding league"})
     }
   }
 

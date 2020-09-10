@@ -14,6 +14,7 @@ router.delete("/delete-league/:id", deleteLeague)
 
 router.get("/divisions", getDivisions)
 
-router.post("/add-divisions", addDivision)
+router.post("/add-division", addDivision)
+
 
 export default router

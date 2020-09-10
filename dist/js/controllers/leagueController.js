@@ -20,7 +20,7 @@ const getLeagues = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         res.status(200).json({ leagues });
     }
     catch (error) {
-        console.log(error);
+        res.status(500).json({ message: "Error getting leagues" });
     }
 });
 exports.getLeagues = getLeagues;
@@ -37,7 +37,7 @@ const addLeague = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             .json({ message: "League added", league: newLeague, leagues: allLeagues });
     }
     catch (error) {
-        throw error;
+        res.status(500).json({ message: "Error adding league" });
     }
 });
 exports.addLeague = addLeague;
