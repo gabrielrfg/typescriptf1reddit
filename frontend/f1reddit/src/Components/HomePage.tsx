@@ -16,7 +16,6 @@ export default function ImgMediaCard() {
   
     return (
         <Paper>
-            <TopBar/>
             <Paper className={classes.image}>
                 <div className={classes.overlay}>
                 <Typography variant="body2" color="textPrimary" component="p" className={classes.imageText}>

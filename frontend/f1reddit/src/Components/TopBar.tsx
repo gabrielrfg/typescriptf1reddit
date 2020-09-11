@@ -11,6 +11,8 @@ import {styles, theme} from './styles'
 import { CssBaseline, Menu, MenuItem } from '@material-ui/core';
 import logo from '../fonts/logo.png';
 import SubMenu from './SubMenu';
+import SubMenu2 from './SubMenu';
+import MenuListComposition from './SubMenu2';
 
 export default function ButtonAppBar() {
     const classes = styles();
@@ -23,9 +25,9 @@ export default function ButtonAppBar() {
                     <Typography variant="h6" className={classes.title}>
                         r/F1 SimRacing League
                     </Typography>
-                    <SubMenu text="PC" style={{color:"white"}}/>
-                    <SubMenu text="PS4" style={{color:"blue"}}/>
-                    <SubMenu text="XBOX" style={{color:"green"}}/>
+                    <MenuListComposition text="PC" style={{color:"white", fontSize:"2em", fontFamily:"Formula1"}}/>
+                    <MenuListComposition text="PS4" style={{color:"blue",fontSize:"2em", fontFamily:"Formula1"}}/>
+                    <MenuListComposition text="XBOX" style={{color:"green",fontSize:"2em", fontFamily:"Formula1"}}/>
                 </Toolbar>
             </AppBar>
     );

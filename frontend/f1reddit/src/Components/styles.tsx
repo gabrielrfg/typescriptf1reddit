@@ -14,7 +14,7 @@ export const theme = createMuiTheme({
             default:"#101010"
         },
         primary: {
-        main: red[500],
+        main: red[700],
         },
         secondary: {
         main: grey[900],
@@ -31,6 +31,13 @@ export const styles = makeStyles(theme =>{
     return {
     root: {
         flexGrow: 1,
+    },
+    menuGrow: {
+        zIndex:1,
+    },
+    dropdownMenu: {
+        backgroundColor: theme.palette.primary.main,
+        color: "#ffffff"
     },
     image:{
         height:300,

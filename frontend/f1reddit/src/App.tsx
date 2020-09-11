@@ -11,6 +11,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline/>
+      <TopBar/>
       <Router>
         <Route path="/" exact component={HomePage}/>
       </Router>
