@@ -9,25 +9,33 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { styles, theme } from './styles';
 import TopBar from './TopBar';
+import { Paper } from '@material-ui/core';
 
 export default function ImgMediaCard() {
     const classes = styles();
   
     return (
-        <div>
+        <Paper>
             <TopBar/>
-            <Card className={classes.imageCard}>
+            <Paper className={classes.image}>
+                <div className={classes.overlay}>
+                <Typography variant="body2" color="textPrimary" component="p" className={classes.imageText}>
+                    S🅱inalla
+                </Typography>
+                </div>
+            </Paper>
+        </Paper>
+      
+    );
+    /*
+    <Card className={classes.imageCard}>
                 <CardMedia className={classes.image}
                     component="img"
                     alt="f1 Banner"
                     height="300"
                     image="https://cdn.discordapp.com/attachments/700790460335128696/753006119210975332/F1_2020_photo_superres_20200907_131636.png"
                 />
-                <Typography variant="body2" color="textSecondary" component="p" align='center' className={classes.overlay}>
-                    S🅱inalla
-                </Typography>
+                
             </Card>
-        </div>
-      
-    );
+    */
   }
